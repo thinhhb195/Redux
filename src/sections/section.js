@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
-import authedUser from "./reducers/authedUser";
-import users from "./reducers/users";
-import questions from "./reducers/questions";
+import authedUser from "./authedUser";
+import users from "./users";
+import questions from "./questions";
 
 export const store = configureStore({
   reducer: {

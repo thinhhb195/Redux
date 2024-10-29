@@ -1,4 +1,4 @@
-import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "./_DATA";
+import {_getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer} from "../resource/_DATA";
 
 export function getInitialData () {
     return Promise.all([

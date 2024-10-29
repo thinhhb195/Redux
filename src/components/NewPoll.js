@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {handleAddQuestion} from "../actions/questions";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NewPoll = ({dispatch}) => {
     const navigate = useNavigate();
@@ -64,7 +65,7 @@ const NewPoll = ({dispatch}) => {
                 <div className="mt-6 text-right">
                     <button type="submit"
                             data-testid="submit-poll"
-                            className="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
+                            className="w-100">
                         Submit
                     </button>
                 </div>

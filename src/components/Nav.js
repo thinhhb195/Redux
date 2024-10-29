@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {handleLogout} from "../actions/authedUser";
+import {handleLogout} from "../authentication/authedUser";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Nav = ({dispatch, authedUserId}) => {
 

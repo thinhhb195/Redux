@@ -6,7 +6,7 @@ import Dashboard from "./components/Dashboard";
 import NewPoll from "./components/NewPoll";
 import PollPage from "./components/PollPage";
 import {connect} from "react-redux";
-import Login from "./components/Login";
+import Login from "./authentication/Login";
 import {handleInitialData} from "./actions/shared";
 import Leaderboard from "./components/Leaderboard";
 import Error404 from "./components/404";

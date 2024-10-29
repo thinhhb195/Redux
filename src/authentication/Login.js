@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import {Navigate} from "react-router-dom";
 import {useState} from "react";
-import {handleLogin} from "../actions/authedUser";
+import {handleLogin} from "../authentication/authedUser";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Login = ({dispatch, loggedIn}) => {

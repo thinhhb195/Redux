@@ -1,4 +1,4 @@
-import {saveQuestion, saveQuestionAnswer} from "../util/api";
+import {saveQuestion, saveQuestionAnswer} from "../api/api";
 import {addAnswerUser, addQuestionUser} from "./users";
 
 export const ADD_QUESTION = "ADD_QUESTION";

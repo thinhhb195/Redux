@@ -75,10 +75,7 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
                     <p className="text-xs">Votes: {question.optionTwo.votes.length} ({calcPercentage("optionTwo", question)})</p>
                     }
                 </button>
-
-
             </div>
-
 
         </div>
     );
@@ -91,7 +88,6 @@ const mapStateToProps = ({authedUser, users, questions}) => {
         return {authedUser, question, author};
     } catch (e) {
         return <Navigate to="/404"/>;
-        // throw new Error(`Question or user is not found.\n ${e}`);
     }
 };
 
