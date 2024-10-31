@@ -1,16 +1,12 @@
-import {connect,useSelector} from "react-redux";
+import {connect} from "react-redux";
 import {Navigate, useNavigate, useParams} from "react-router-dom";
 import {handleAddAnswer} from "../actions/questions";
 import "./PollPage.css";
-import {Link} from "react-router-dom";
 
 const PollPage = ({dispatch, authedUser, question, author}) => {
-    const { question_id } = useParams();
     const navigate = useNavigate();
-    const questionsss = useSelector((state) => state.question.questions);
 
     if (!authedUser || !question || !author) {
-        question = questionsss;
         return <Navigate to="/404"/>;
     }
 
@@ -21,12 +17,13 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
     const handleOptionOne = (e) => {
         e.preventDefault();
         dispatch(handleAddAnswer(question.id, "optionOne"));
-            return <Navigate to="/questions/${question.id}"/>;
+        navigate("/");
     };
 
     const handleOptionTwo = (e) => {
         e.preventDefault();
         dispatch(handleAddAnswer(question.id, "optionTwo"));
+        navigate("/");
     };
 
     const calcPercentage = (option, question) => {
@@ -67,7 +64,6 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
                         }
                     </div>
                 </button>
-                <Link to={'/questions/' + question.id} id="id">
 
                 <button onClick={handleOptionTwo} disabled={hasVoted}
                         className={"p-2 rounded-xl bg-zinc-100 hover:shadow-xl transition " + (hasVotedForOptionTwo ? "bg-lime-400" : "")}>
@@ -79,9 +75,10 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
                     <p className="text-xs">Votes: {question.optionTwo.votes.length} ({calcPercentage("optionTwo", question)})</p>
                     }
                 </button>
-                </Link>
+
+
             </div>
-            <Link to={'/questions/' + question.id} id="id">123</Link>
+
 
         </div>
     );
@@ -91,10 +88,12 @@ const mapStateToProps = ({authedUser, users, questions}) => {
     try {
         const question = Object.values(questions).find((question) => question.id === useParams().id);
         const author = Object.values(users).find((user) => user.id === question.author);
-        return {authedUser, author, question};
+        return {authedUser, question, author};
     } catch (e) {
         return <Navigate to="/404"/>;
+        // throw new Error(`Question or user is not found.\n ${e}`);
     }
 };
 
 export default connect(mapStateToProps)(PollPage);
+
